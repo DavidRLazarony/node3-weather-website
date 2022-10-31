@@ -8,6 +8,11 @@ const forecast = require("./utils/forecast")
 
 const app = express()
 
+//
+// Use Heroku provided PORT or default to 3000
+//
+const port = process.env.PORT || 3000
+
 // console.log("__dirname:", __dirname)
 // console.log("__filename:", __filename)
 
@@ -146,6 +151,6 @@ app.get("/weather", (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log("Server is up on port 3000.")
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}.`)
 })
