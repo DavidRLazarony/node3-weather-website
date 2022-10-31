@@ -11,9 +11,12 @@ const forecast = (latitude, longitude, callback) => {
         } else if (weather.error) {
             callback("Unable to find location!", undefined)
         } else {
-            console.log(weather)
-            const data = `Currently in ${weather.location.name} it is ${weather.current.weather_descriptions[0]} and ${weather.current.temperature} degrees.`
-                       + `The wind is out of the ${weather.current.wind_dir} at ${weather.current.wind_speed} mph.`
+//            console.log(weather)
+            const data = {
+                description: `Currently in ${weather.location.name} it is ${weather.current.weather_descriptions[0]} and ${weather.current.temperature} degrees.`
+                           + `The wind is out of the ${weather.current.wind_dir} at ${weather.current.wind_speed} mph.`,
+                icon: weather.current.weather_icons[0]
+            } 
             callback(undefined, data)
         }
     })
